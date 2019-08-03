@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import UserCard from './UserCard';
+import BtnGroup from './BtnGroup';
+import PopUpInfo from './PopUpInfo';
 
 // Вспомогательные переменные для функций fncLike / fncDislike
 var likesarr = []
@@ -14,7 +16,7 @@ class App extends React.Component {
       userData: null,
       likes: [], 
       dislikes: [], 
-      infoON: 'none', 
+      infoON: false, 
       needGender: '',
       needAge: '',
     }
@@ -58,7 +60,7 @@ class App extends React.Component {
 
   fncInfo = () => {
       this.setState({
-        infoON: this.state.infoON === 'block' ? 'none' : 'block'
+        infoON: this.state.infoON === true ? false : true
       })
   }
 
@@ -131,27 +133,28 @@ class App extends React.Component {
         {
           this.state.userData &&
           <div>
-            <UserCard 
-            firstname={this.state.userData.results[0].name.first}
-            age={this.state.userData.results[0].dob.age}
-            gender={this.state.userData.results[0].gender}
-            foto={this.state.userData.results[0].picture.large}
-            fncLike={this.fncLike}
-            fncDislike={this.fncDislike}
-            fncInfo={this.fncInfo}
-            />
-          <div style={{display: this.state.infoON ,position: 'fixed', zIndex: '223456789009876543234567890'}}>
-            <p>Имя: {this.state.userData.results[0].name.first}</p>
-            <p>Фамилия: {this.state.userData.results[0].name.last}</p>
-            <p>Возраст: {this.state.userData.results[0].dob.age}</p>
-            <p>Дата рождения: {this.state.userData.results[0].dob.date}</p>
-            <p>Город: {this.state.userData.results[0].location.city}</p>
-            <p>Улица: {this.state.userData.results[0].location.street}</p>
-            <button onClick={this.fncInfo}>X</button>
-          </div>
+            {
+              this.state.infoON ? 
+                <PopUpInfo 
+                data={this.state.userData.results[0]}
+                fncInfo={this.fncInfo}
+                /> : 
+              <div>
+                <UserCard 
+                data={this.state.userData.results[0]}  
+                />
+                <BtnGroup 
+                fncLike={this.fncLike}
+                fncDislike={this.fncDislike}
+                fncInfo={this.fncInfo}
+                />
+              </div>
+            }
+            
+ 
         </div>
         }
-        <button onClick={this.getBestUser}></button>
+
       </div>
     );
   }

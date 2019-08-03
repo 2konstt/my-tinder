@@ -11,12 +11,10 @@ class UserCard extends React.Component {
     render () {
         return (
             <div>
-                <img src={this.props.foto} />
-                <p>{this.props.firstname} age:{this.props.age}</p>
-                <p>{this.props.gender}</p>
-                <button onClick={this.props.fncLike}>LIKE</button>
-                <button onClick={this.props.fncInfo}>INFO</button>
-                <button onClick={this.props.fncDislike}>DISLIKE</button>
+                <img src={this.props.data.picture.large} />
+                <p style={{fontSize: '35px'}}>{this.props.data.name.first}</p>
+                <p>age:{this.props.data.dob.age}</p>
+                <p>{this.props.data.gender}</p>
             </div>
         )
     }
