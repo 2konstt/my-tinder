@@ -1,0 +1,66 @@
+.MSBody {
+    margin: 0 auto;
+    padding: 0;
+    width: 400px;
+}
+
+h3, p {
+    margin: 0;
+    padding: 0;
+}
+.input-conteiner {
+    position: relative;
+}
+
+.input-conteiner img {
+    width:15px;
+    position: absolute;                      
+    right: 5px;
+    top: 12.5px;
+}
+
+.input {
+    width: 390px;
+    padding: 10px 5px;
+    border: 2px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.ListCard{
+    text-align: left;
+    background-color: darkseagreen;
+    padding: 5px 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.ActiveItems {
+    display: flex;
+    width: 350px;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+}
+.ActiveCard {
+    margin-top: 5px;
+    padding-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    text-align: left;
+    vertical-align: middle;
+    width: 100px;
+    height: 30px;
+    background-color: darkgreen;
+    color: white;
+}
+
+.ActiveCard p {
+    margin-top: 5px;
+}
+.ActiveCard button {
+    margin-right: 7px;
+    background: transparent;
+    border: 0px;
+    width: 10px;
+
+}

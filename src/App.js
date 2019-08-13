@@ -3,6 +3,7 @@ import './App.css';
 import UserCard from './UserCard';
 import BtnGroup from './BtnGroup';
 import PopUpInfo from './PopUpInfo';
+import MultiSelect from './MultiSelect'
 
 // Вспомогательные переменные для функций fncLike / fncDislike
 var likesarr = []
@@ -19,11 +20,14 @@ class App extends React.Component {
       infoON: false, 
       needGender: '',
       needAge: '',
+      dataForList: [{id: 0, active: false, find: false, lang: 'Русский', note: 'Русский'}, 
+      {id: 1, active: false, find: false, lang: 'English', note: 'Английский'},
+      {id: 2, active: false, find: false, lang: 'Polska', note: 'Польский'},
+      {id: 3, active: false, find: false, lang: 'Deuchland', note: 'Неметский'}]
     }
   }
   componentDidMount () {
     this.getNewUser();
-    
   }
 
   getNewUser = () => {
@@ -130,7 +134,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {
+        {/* {
           this.state.userData &&
           <div>
             {
@@ -148,13 +152,16 @@ class App extends React.Component {
                 fncDislike={this.fncDislike}
                 fncInfo={this.fncInfo}
                 />
+                
               </div>
             }
             
  
         </div>
-        }
-
+        } */}
+        MultiSelect
+                
+        <MultiSelect data={this.state.dataForList}        />
       </div>
     );
   }
